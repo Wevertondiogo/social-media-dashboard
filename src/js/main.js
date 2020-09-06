@@ -1,3 +1,5 @@
+const q = (q) => document.querySelector(q);
+const qAll = (q) => document.querySelectorAll(q);
 const profileInSocialRedes = [
   {
     img: "../../images/icon-facebook.svg",
@@ -130,7 +132,7 @@ const overview = (props) =>
     <img src="${props.img}" >
   </div>
   <div class="overview-body">
-    <div class="likes">${props.likes}</div>
+    <h2 class="likes">${props.likes}</h2>
     <div class="porcentagem">
       <img src="${props.icon}">
       <p class="${props.style}">${props.porcentagem}</p>
@@ -148,7 +150,59 @@ const h3 = `<h3>Overview - Today</h3>`;
 const setOverviewInfo = () =>
   overviewToday.map((view) => overview(view)).join("");
 
-document.querySelector(".container").innerHTML =
-  setCardInfo() + h3 + setOverviewInfo();
+q(".container").innerHTML = setCardInfo() + h3 + setOverviewInfo();
 
-const check = document.querySelector("input");
+const classCondition = (className) =>
+  className?.classList[0] === "card" || className?.classList[0] === "overview";
+
+const setTheme = () => {
+  const body = q("body");
+  const topBg = q(".top-bg");
+  const container = q(".container");
+  for (let i = 0; i <= container.children.length; i++) {
+    if (classCondition(container.children[i])) {
+      const className = container.children[i];
+      if (check.checked) {
+        body.style.backgroundColor = "hsl(230, 17%, 14%)";
+        topBg.style.backgroundColor = "hsl(232, 19%, 15%)";
+        className.style.backgroundColor = "hsl(228, 28%, 20%)";
+      } else {
+        body.style.backgroundColor = "hsl(0, 0%, 100%)";
+        topBg.style.backgroundColor = "hsl(225, 100%, 98%)";
+        className.style.backgroundColor = "hsl(227, 47%, 96%)";
+      }
+    }
+  }
+  setColorText();
+  setColorTitle();
+};
+
+const setColorText = () => {
+  const p = qAll("p");
+  for (let i = 0; i <= p.length; i++) {
+    if (p[i]?.classList.value === "") {
+      const modifiedP = p[i];
+      if (check.checked) {
+        modifiedP.style.color = "hsl(228, 34%, 66%)";
+      } else {
+        modifiedP.style.color = "hsl(228, 12%, 44%)";
+      }
+    }
+  }
+};
+
+const setColorTitle = () => {
+  const h2 = qAll("h2");
+  for (let i = 0; i <= h2.length; i++) {
+    if (h2[i] !== undefined) {
+      if (check.checked) {
+        h2[i].style.color = "hsl(0, 0%, 100%)";
+      } else {
+        h2[i].style.color = "hsl(230, 17%, 14%)";
+      }
+    }
+  }
+};
+
+const check = q("input");
+check.addEventListener("click", setTheme);

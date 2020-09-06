@@ -1,21 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 body {
   background: hsl(0, 0%, 100%);
+  overflow-x: hidden;
 }
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
-  margin: 30px auto;
-
+  width: 80%;
+  margin: 15px auto;
+  .top-bg {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 310px;
+    z-index: -1;
+  }
   .logo {
     &__title {
       font: normal bold normal 2.2em/32px "Inter", sans-serif;
       color: hsl(230, 17%, 14%);
     }
     &__total-follow {
-      font: normal 400 normal 1.1em/0 "Inter", sans-serif;
+      font: normal 400 normal 1.1rem/0 "Inter", sans-serif;
       color: hsl(228, 12%, 44%);
     }
   }
@@ -23,10 +32,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 13%;
+    width: 15%;
 
     p {
-      font: normal 400 normal 1em "Inter", sans-serif;
+      font: normal 400 normal 1rem "Inter", sans-serif;
       color: hsl(228, 12%, 44%);
     }
     input[type="checkbox"] {
@@ -39,10 +48,10 @@ header {
           hsl(210, 78%, 56%),
           hsl(146, 68%, 55%)
         );
-        // box-shadow: 0 0 0 100vw #092c3e;
       }
       &:checked ~ .check:before {
-        transform: translateX(-3vw);
+        transform: translateX(-2.8vw);
+        background-color: hsl(230, 17%, 14%);
       }
     }
     .check {
@@ -59,7 +68,7 @@ header {
         position: absolute;
         top: 8%;
         right: 3px;
-        background: #fff;
+        background: hsl(0, 0%, 100%);
         width: 35%;
         height: 80%;
         border-radius: 50%;
@@ -73,6 +82,7 @@ header {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  width: 82%;
   margin: 40px auto;
   .card {
     position: relative;
@@ -80,8 +90,9 @@ header {
     align-items: center;
     flex-direction: column;
     background-color: hsl(227, 47%, 96%);
-    height: 300px;
-    width: 19%;
+    height: 280px;
+    width: 23%;
+    margin: 0 8px;
     &:nth-child(1) {
       border-top: 5px solid hsl(208, 92%, 53%);
     }
@@ -114,7 +125,7 @@ header {
       margin-top: 20px;
       width: 100%;
       color: hsl(230, 17%, 14%);
-      font: normal bold normal 1em/0 "Inter", sans-serif;
+      font: normal bold normal 1rem/0 "Inter", sans-serif;
       img {
         padding-right: 5px;
       }
@@ -128,10 +139,12 @@ header {
       height: 170px;
 
       h2 {
-        font: normal bold normal 3.5em/0 "Inter", sans-serif;
+        font: normal bold normal 4.2rem/0 "Inter", sans-serif;
       }
       p {
-        font: normal 400 normal 1em/0 "Inter", sans-serif;
+        font: normal 400 normal 1rem/0 "Inter", sans-serif;
+        position: relative;
+        bottom: 22px;
         color: hsl(228, 12%, 44%);
       }
     }
@@ -158,8 +171,9 @@ header {
     }
   }
   h3 {
-    width: 90%;
-    font: normal bold normal 1.8em "Inter", sans-serif;
+    width: 98%;
+    margin: 40px 0;
+    font: normal bold normal 1.8rem "Inter", sans-serif;
     letter-spacing: 1.1px;
     color: hsl(228, 12%, 44%);
   }
@@ -168,7 +182,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 19%;
+    width: 23%;
     height: 130px;
     margin: 10px;
     background-color: hsl(227, 47%, 96%);
@@ -185,17 +199,17 @@ header {
     }
     &-header {
       p {
-        font: normal bold normal 1em "Inter", sans-serif;
+        font: normal bold normal 1rem "Inter", sans-serif;
         color: hsl(228, 12%, 44%);
       }
     }
     &-body {
       .likes {
-        font: normal bold normal 2em "Inter", sans-serif;
+        font: normal bold normal 2rem "Inter", sans-serif;
         color: hsl(230, 17%, 14%);
       }
       p {
-        font: normal bold normal 1em "Inter", sans-serif;
+        font: normal bold normal 1rem "Inter", sans-serif;
       }
       .red {
         color: hsl(356, 69%, 56%);
