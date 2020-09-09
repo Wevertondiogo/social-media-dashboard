@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+$bg: hsl(0, 0%, 100%);
+$top-bg: hsl(225, 100%, 98%);
+$card: hsl(227, 47%, 96%);
+$p: hsl(228, 12%, 44%);
+$title: hsl(230, 17%, 14%);
+$bodyCheckbox: hsl(230, 22%, 74%);
+$checkbox: hsl(0, 0%, 100%);
+$checked: hsl(210, 78%, 56%), hsl(146, 68%, 55%);
+$green: hsl(163, 72%, 41%);
+$red: hsl(356, 69%, 56%);
+$top-card1: hsl(208, 92%, 53%);
+$top-card2: hsl(203, 89%, 53%);
+$top-card3: hsl(37, 97%, 70%), hsl(329, 70%, 58%);
+$top-card4: hsl(348, 97%, 39%);
+$hover: #aeb3cb5b;
+h2 {
+  font: normal bold normal 2.2rem/32px "Inter", sans-serif;
+  color: $title;
+}
+p {
+  font: normal bold normal 1em/0 "Inter", sans-serif;
+  color: $p;
+}
+
+%d-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+%d-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+%d-end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+%d-evenly-and-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+@mixin width-and-height($width, $height) {
+  width: $width;
+  height: $height;
+}

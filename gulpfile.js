@@ -13,7 +13,6 @@ const compilerSass = () => {
     .pipe(dest("src/css"))
     .pipe(dest("dist/css"));
 };
-
 const htmlMIn = () => {
   return gulp
     .src("src/index.html")
@@ -36,5 +35,4 @@ const watch = () => {
   gulp.watch("src/index.html", htmlMIn);
   gulp.watch("src/js/**/*.js", compilerJs);
 };
-
 gulp.task("default", watch);

@@ -1,0 +1,167 @@
+@media (min-width: 375px) and (max-width: 500px) {
+  header {
+    flex-wrap: wrap;
+    margin: 15px auto;
+    width: 100% !important;
+    .top-bg {
+      display: none !important;
+    }
+    .logo {
+      position: relative;
+      width: 90% !important;
+      margin-left: 15px;
+      &__title {
+        font-size: 1.5rem !important;
+      }
+      &__total-follow {
+        position: relative;
+        bottom: 10px;
+        font-size: 0.8rem !important;
+      }
+    }
+    .line {
+      position: absolute;
+      bottom: -5px;
+      height: 0.8px;
+      width: 100%;
+      background-color: hsl(232, 19%, 15%);
+    }
+    label {
+      margin: 12px 0 0 14px;
+      width: 90% !important;
+      h3 {
+        font-size: 0.9rem !important;
+      }
+      input[type="checkbox"] {
+        &:checked ~ .check:before {
+          transform: translateX(-4.9vw) !important;
+        }
+      }
+      .check {
+        width: 10vw !important;
+        height: 4.5vw !important;
+      }
+    }
+  }
+
+  .container {
+    width: 95% !important;
+    .card {
+      width: 100% !important;
+      margin: 15px 0 !important;
+      cursor: pointer;
+      transition: 0.3s ease-in;
+      &:nth-child(1) {
+        border-top: 4px solid hsl(208, 92%, 53%) !important;
+      }
+      &:nth-child(2) {
+        border-top: 4px solid hsl(203, 89%, 53%) !important;
+      }
+      &:nth-child(3) {
+        position: relative;
+        &::after {
+          height: 4px !important;
+        }
+      }
+      &:nth-child(4) {
+        border-top: 4px solid hsl(348, 97%, 39%) !important;
+      }
+      &-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        width: 100%;
+        color: hsl(230, 17%, 14%);
+        font: normal bold normal 1rem/0 "Inter", sans-serif;
+        img {
+          padding-right: 5px;
+        }
+      }
+
+      &-footer {
+        position: absolute;
+        bottom: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        p {
+          font: normal bold normal 1em/0 "Inter", sans-serif;
+        }
+        .green {
+          color: hsl(163, 72%, 41%);
+        }
+        .red {
+          color: hsl(356, 69%, 56%);
+        }
+        img {
+          height: 8px;
+          padding-right: 5px;
+        }
+      }
+    }
+  }
+  .title-overview {
+    width: 98%;
+    margin: 40px 0;
+    font-size: 1.7rem !important;
+  }
+  .overview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100% !important;
+    height: 130px;
+    margin: 10px 0 !important;
+    background-color: hsl(227, 47%, 96%);
+    cursor: pointer;
+    transition: 0.3s ease-in;
+    &:hover {
+      background-color: #aeb3cb5b;
+    }
+    &-header,
+    &-body {
+      width: 80%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 50%;
+      img {
+        height: 22px;
+      }
+    }
+    &-header {
+      p {
+        font: normal bold normal 1rem "Inter", sans-serif;
+        color: hsl(228, 12%, 44%);
+      }
+    }
+    &-body {
+      .likes {
+        font: normal bold normal 2rem "Inter", sans-serif;
+        color: hsl(230, 17%, 14%);
+      }
+      p {
+        font: normal bold normal 1rem "Inter", sans-serif;
+      }
+      .red {
+        color: hsl(356, 69%, 56%);
+      }
+      .green {
+        color: hsl(163, 72%, 41%);
+      }
+    }
+    .porcentagem {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      img {
+        height: 8px;
+        padding-right: 5px;
+      }
+    }
+  }
+}

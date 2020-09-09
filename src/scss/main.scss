@@ -1,12 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+@import "base";
+@import "responsive";
 body {
-  background: hsl(0, 0%, 100%);
+  background: $bg;
   overflow-x: hidden;
 }
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @extend %d-between;
   width: 80%;
   margin: 15px auto;
   .top-bg {
@@ -17,37 +16,28 @@ header {
     width: 100vw;
     height: 310px;
     z-index: -1;
+    background-color: $top-bg;
   }
   .logo {
-    &__title {
-      font: normal bold normal 2.2em/32px "Inter", sans-serif;
-      color: hsl(230, 17%, 14%);
-    }
     &__total-follow {
       font: normal 400 normal 1.1rem/0 "Inter", sans-serif;
-      color: hsl(228, 12%, 44%);
+      color: $p;
     }
   }
   label {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @extend %d-between;
     width: 15%;
-
-    p {
-      font: normal 400 normal 1rem "Inter", sans-serif;
-      color: hsl(228, 12%, 44%);
+    h3 {
+      font: normal bold normal 1rem "Inter", sans-serif;
+      color: $p;
     }
     input[type="checkbox"] {
       -webkit-appearance: none;
       visibility: hidden;
       display: none;
+
       &:checked ~ .check {
-        background: linear-gradient(
-          to left,
-          hsl(210, 78%, 56%),
-          hsl(146, 68%, 55%)
-        );
+        background: linear-gradient(to left, $checked);
       }
       &:checked ~ .check:before {
         transform: translateX(-2.8vw);
@@ -55,22 +45,20 @@ header {
       }
     }
     .check {
+      @include width-and-height(5vw, 2vw);
       position: relative;
       display: block;
-      width: 5vw;
-      height: 2vw;
-      background: hsl(230, 22%, 74%);
+      background: $bodyCheckbox;
       cursor: pointer;
       border-radius: 20px;
       transition: ease-in 0.5s;
       &:before {
         content: "";
+        @include width-and-height(35%, 80%);
         position: absolute;
         top: 8%;
         right: 3px;
-        background: hsl(0, 0%, 100%);
-        width: 35%;
-        height: 80%;
+        background: $checkbox;
         border-radius: 50%;
         transition: 0.5s;
       }
@@ -79,49 +67,45 @@ header {
 }
 
 .container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  @extend %d-evenly-and-wrap;
   width: 82%;
   margin: 40px auto;
   .card {
+    @include width-and-height(23%, 280px);
     position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: hsl(227, 47%, 96%);
-    height: 280px;
-    width: 23%;
+    background-color: $card;
     margin: 0 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+    &:hover {
+      background-color: $hover;
+    }
     &:nth-child(1) {
-      border-top: 5px solid hsl(208, 92%, 53%);
+      border-top: 5px solid $top-card1;
     }
     &:nth-child(2) {
-      border-top: 5px solid hsl(203, 89%, 53%);
+      border-top: 5px solid $top-card2;
     }
     &:nth-child(3) {
       position: relative;
+      height: 285px;
       &::after {
         content: "";
+        @include width-and-height(100%, 5px);
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 5px;
-        background: linear-gradient(
-          to right,
-          hsl(37, 97%, 70%),
-          hsl(329, 70%, 58%)
-        );
+        background: linear-gradient(to right, $top-card3);
       }
     }
     &:nth-child(4) {
-      border-top: 5px solid hsl(348, 97%, 39%);
+      border-top: 5px solid $top-card4;
     }
     &-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @extend %d-center;
       margin-top: 20px;
       width: 100%;
       color: hsl(230, 17%, 14%);
@@ -131,38 +115,29 @@ header {
       }
     }
     &-body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @extend %d-center;
       flex-direction: column;
-      width: 100%;
-      height: 170px;
+      @include width-and-height(100%, 170px);
 
       h2 {
         font: normal bold normal 4.2rem/0 "Inter", sans-serif;
       }
       p {
-        font: normal 400 normal 1rem/0 "Inter", sans-serif;
         position: relative;
         bottom: 22px;
-        color: hsl(228, 12%, 44%);
       }
     }
     &-footer {
+      @extend %d-center;
       position: absolute;
       bottom: 10%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       width: 100%;
-      p {
-        font: normal bold normal 1em/0 "Inter", sans-serif;
-      }
+
       .green {
-        color: hsl(163, 72%, 41%);
+        color: $green;
       }
       .red {
-        color: hsl(356, 69%, 56%);
+        color: $red;
       }
       img {
         height: 8px;
@@ -170,29 +145,28 @@ header {
       }
     }
   }
-  h3 {
+  .title-overview {
     width: 98%;
     margin: 40px 0;
     font: normal bold normal 1.8rem "Inter", sans-serif;
     letter-spacing: 1.1px;
-    color: hsl(228, 12%, 44%);
+    color: $p;
   }
   .overview {
-    display: flex;
+    @extend %d-center;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 23%;
-    height: 130px;
+    @include width-and-height(23%, 130px);
     margin: 10px;
-    background-color: hsl(227, 47%, 96%);
+    background-color: $card;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+    &:hover {
+      background-color: $hover;
+    }
     &-header,
     &-body {
-      width: 80%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 50%;
+      @extend %d-between;
+      @include width-and-height(80%, 50%);
       img {
         height: 22px;
       }
@@ -200,7 +174,6 @@ header {
     &-header {
       p {
         font: normal bold normal 1rem "Inter", sans-serif;
-        color: hsl(228, 12%, 44%);
       }
     }
     &-body {
@@ -208,21 +181,17 @@ header {
         font: normal bold normal 2rem "Inter", sans-serif;
         color: hsl(230, 17%, 14%);
       }
-      p {
-        font: normal bold normal 1rem "Inter", sans-serif;
-      }
+
       .red {
-        color: hsl(356, 69%, 56%);
+        color: $red;
       }
       .green {
-        color: hsl(163, 72%, 41%);
+        color: $green;
       }
     }
     .porcentagem {
+      @extend %d-end;
       width: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
       img {
         height: 8px;
         padding-right: 5px;
